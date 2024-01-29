@@ -9,21 +9,16 @@ const AppButton = ({ onPress, title }) => {
   );
 };
 
-const heroImageStyled = {
-  width: 400,
-  minHeight: "auto",
-};
-
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      <Text>What's the watchword?</Text>
+      <Text style={styles.headerText}>What's the watchword?</Text>
       <Text style={styles.bottomText}>No gree for anybody.</Text>
       <View style={styles.imageContainer}>
         <Image
-          source={require('../assets/20240104_115744.jpg')}
-          style={heroImageStyled}
+          source={require("./assets/20240104_115744.jpg")}
+          style={imageStyles.heroImage}
         ></Image>
       </View>
       <AppButton
@@ -42,6 +37,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     zIndex: 2,
+  },
+  headerText: {
+    fontSize: 30,
+    marginTop: -30,
+    fontWeight: "bold",
+    textAlign: "center",
+    width: "100%",
   },
   bottomText: {
     flex: 1,
@@ -67,10 +69,10 @@ const styles = StyleSheet.create({
     marginTop: 400,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "blue",
+    backgroundColor: "#3e333e3e",
   },
   buttonTextStyle: {
-    color: "#f3f3f3f3",
+    color: "#333333",
     textTransform: "uppercase",
   },
   imageContainer: {
@@ -78,10 +80,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     maxHeight: 400,
-    backgroundColor: "red",
-    width: "100%",
+    width: "90%",
     height: 400,
     position: "absolute",
-    zIndex: 1,
+    overflow: "hidden",
+    borderWidth: 1,
+    zIndex: -1,
+  },
+});
+
+const imageStyles = StyleSheet.create({
+  heroImage: {
+    width: 400,
+    minHeight: "auto",
+    height: 300,
+    borderRadius: 200,
+    borderTopLeftRadius: 0,
+    transform: [{ translateY: -10 }, { scale: 0.8 }],
   },
 });
